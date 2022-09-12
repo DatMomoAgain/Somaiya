@@ -144,7 +144,81 @@ string subt(string a, string b)
     return ans.substr(1,ans.size()-1);
 }
 
-//BOOL'S ALGO FOR MULTIPLICATION
+//BOOTH'S ALGO FOR MULTIPLICATION
+string booth(string M, string Q)
+{
+    string ans;
+    string a = "0000";
+    string temp1;
+    string temp2;
+    string q = Q;
+    string m = M;
+    if (M < Q)
+    {
+        m = Q;
+        q = M;
+    }
+    char q1 = '0';
+    for(int i=0; i<4; i++)
+    {
+        if(q[3] == q1)
+        {
+            temp1 = a;
+            temp2 = q;
+            a = q[3];
+            for(int j=0; j<3; j++)
+            {
+                a += temp1[j];
+            }
+            q = temp1[3];
+            for(int j=0; j<3; j++)
+            {
+                q += temp2[j];
+            }
+            q1 = temp2[3];
+        }
+        else if(q[3] == '0' && q1 == '1')
+        {
+            a = add(a,m);
+            a = a.substr(1,a.size()-1);
+
+            temp1 = a;
+            temp2 = q;
+            a = q[3];
+            for(int j=0; j<3; j++)
+            {
+                a += temp1[j];
+            }
+            q = temp1[3];
+            for(int j=0; j<3; j++)
+            {
+                q += temp2[j];
+            }
+            q1 = temp2[3];
+        }
+        else if(q[3] == '1' && q1 == '0')
+        {
+            a = subt(a,m);
+
+            temp1 = a;
+            temp2 = q;
+            a = q[3];
+            for(int j=0; j<3; j++)
+            {
+                a += temp1[j];
+            }
+            q = temp1[3];
+            for(int j=0; j<3; j++)
+            {
+                q += temp2[j];
+            }
+            q1 = temp2[3];
+        }        
+    }
+
+    ans = a + q;
+    return ans;
+}
 
 
 int main() {
@@ -158,4 +232,5 @@ int main() {
     string b = d2b(nums2);
     cout << nums1 << " + " << nums2 << " = " << b2d(add(a,b)) << '\n';
     cout << nums1 << " - " << nums2 << " = " << b2d(subt(a,b)) << '\n';
+    cout << nums1 << " * " << nums2 << " = " << b2d(booth(a,b)) << '\n';
 }
