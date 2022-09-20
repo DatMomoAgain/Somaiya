@@ -113,6 +113,28 @@ Node* eradicate(Node* head)
     return head;
 }
 
+Node* sort(Node* head)
+{
+    Node* temp1 = head->next;
+    Node* max = head;
+    
+    while(temp1 != NULL)
+    {
+        if(max->data<temp1->data)
+        {
+            max = temp1;
+        }
+        temp1 = temp1->next;
+    }
+    if (max->next != NULL)
+    {
+        
+    }
+    
+    
+    
+}
+
 int main()
 {
     Node* head = NULL;
