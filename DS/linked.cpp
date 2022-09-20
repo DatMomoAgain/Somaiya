@@ -15,6 +15,7 @@ void traverse(Node* n)
        cout<< n->data << ' '; 
        n = n->next;
     }
+    cout<<'\n';
 }
 
 Node* insert(int x, Node* head)
@@ -69,6 +70,48 @@ Node* insert(int x, Node* head)
     return head;
 }
 
+Node* eradicate(Node* head)
+{
+    cout<<"1-begining 2-end 3-middle: ";
+    int q;
+    cin>>q;
+    Node* temp = head;
+    Node* temp2 = head;
+    switch(q)
+    {
+     case 1:
+        temp = temp->next;
+        head = temp;
+        break;
+     case 2:
+        while(temp->next != NULL)
+        {
+            temp = temp->next;
+        }
+        while(temp2->next != temp)
+        {
+            temp2 = temp2->next;
+        }
+        temp2->next = NULL;
+        break;
+     case 3:
+        cout << "Enter node you want to delete: ";
+        int n1;
+        cin >> n1;
+
+        for(int i=0; i<n1-2; i++)
+        {
+            temp = temp->next;
+        }
+        for(int i=0; i<n1; i++)
+        {
+            temp2 = temp2->next;
+        }
+        temp->next = temp2;
+        break;
+    }
+    return head;
+}
 
 int main()
 {
@@ -84,8 +127,16 @@ int main()
     sec->next = NULL;
     first->next = sec;
     head = insert(3,head);
+    traverse(head);
     head =insert(4,head);
+    traverse(head);
     head =insert(5,head);
+    traverse(head);
+    head = eradicate(head);
+    traverse(head);
+    head = eradicate(head);
+    traverse(head);
+    head = eradicate(head);
     traverse(head);
 
     return 0;
