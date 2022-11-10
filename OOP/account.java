@@ -1,6 +1,6 @@
-import java.util.Scanner;
+import java.util.*;
 
-public class Exp04 {
+public class Test {
     public static void main(String args[])
     {
         Scanner sc = new Scanner(System.in);
@@ -20,7 +20,7 @@ public class Exp04 {
         }
         int q=-1;
         while(q!=0){
-        System.out.println("Enter 1.To add account\n2.To delete any account detail\n3.To display account details.\n0.To exit");
+        System.out.println("Enter 1.To add account 2.To delete any account detail 3.To display account details 0.To exit: ");
         q = sc.nextInt();        
         switch(q)
         {
@@ -29,9 +29,10 @@ public class Exp04 {
 
          case 1:
             System.out.print("Enter id: ");
+            arr[n] = new Account();
             arr[n].id = sc.nextLong();
             System.out.print("Enter name: ");
-            arr[n].name = sc.nextLine();
+            arr[n].name = sc.next();
             System.out.print("Enter balance: ");
             arr[n].bal = sc.nextInt();
             n += 1;
@@ -40,21 +41,27 @@ public class Exp04 {
          case 2:
             System.out.print("Enter account you want to delete: ");
             int n2 = sc.nextInt();
-            Account[] temp = arr;
-            int w =0;
-            for(int i=0; i<n-1; i++)
+            for(int i=0; i<n; i++)
             {
-                if (i != n2-1)
+                if(i==n2-1)
                 {
-                    arr[w] = temp[i];
+                    for(int j=i; j<n-1; j++)
+                    {
+                        arr[j] = arr[j+1];
+                    }
+                    break;
                 }
-                w += 1;
             }
+
+            n= n-1;   
             break;
 
          case 3:
-            System.out.print("Enter account no.: ");
-            int n3 = sc.nextInt();
+            System.out.println("id\tname\tbalance: ");
+            for(int i=0; i<n; i++)
+            {
+                System.out.println(arr[i].id + "\t" + arr[i].name + "\t" + arr[i].bal);
+            }
             break;
 
          default:
@@ -64,7 +71,7 @@ public class Exp04 {
         }
     }
 }
-}
+}   
 
 class Account
 {
