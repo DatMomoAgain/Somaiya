@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
@@ -38,18 +40,26 @@ int main()
     int n;
     cin>>n;
     
+    time_t start, end;
+    
     int* arr = new int[n];
-    cout<<"Enter numbers: ";
     for(int i =0; i<n; i++)
     {
-        cin>>arr[i];
+        arr[i]=rand()%1000;
     }
     
+    time(&start);
+    
     insertion(arr, n);
+    
+    time(&end);
+    double time_taken = double(end - start);
     
     cout<<"Sorted array: ";
     for(int i=0; i<n; i++)
     {
         cout<<arr[i]<<' ';
     }
+    
+    cout<<endl<<"Time taken: "<< time_taken<<'s';
 }
