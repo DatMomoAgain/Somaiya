@@ -45,7 +45,7 @@ int main()
     int* arr = new int[n];
     for(int i =0; i<n; i++)
     {
-        arr[i]=rand()%1000;
+        arr[i]=rand()%10000;
     }
     
     time(&start);
@@ -55,11 +55,33 @@ int main()
     time(&end);
     double time_taken = double(end - start);
     
-    cout<<"Sorted array: ";
-    for(int i=0; i<n; i++)
+    // cout<<"Sorted array: ";
+    // for(int i=0; i<n; i++)
+    // {
+    //     cout<<arr[i]<<' ';
+    // }
+    
+    cout<<endl<<"Time taken for random elements: "<< time_taken<<'s';
+    
+    int n1 = n;
+    for(int i =0; i<n; i++)
     {
-        cout<<arr[i]<<' ';
+        arr[i]=n1;
+        n1--;
     }
     
-    cout<<endl<<"Time taken: "<< time_taken<<'s';
+    time(&start);
+    
+    insertion(arr, n);
+    
+    time(&end);
+    time_taken = double(end - start);
+    
+    // cout<<"Sorted array: ";
+    // for(int i=0; i<n; i++)
+    // {
+    //     cout<<arr[i]<<' ';
+    // }
+    
+    cout<<endl<<"Time taken for worst case: "<< time_taken<<'s';
 }
