@@ -56,8 +56,15 @@ int main()
     {
         cout<<arr[i]<<' ';
     }
+    cout<<endl;
     
     insertion(arr, n, it);
+    
+    cout<<"Sorted array: ";
+    for(int i=0; i<n; i++)
+    {
+        cout<<arr[i]<<' ';
+    }
     
     cout<<endl<<"Iterations for random elements: "<< *it;
     *it = 0;
@@ -76,9 +83,5 @@ int main()
     insertion(arr, n, it);
     cout<<endl<<"Iterations for best case: "<< *it<<endl;
     
-    cout<<"Sorted array: ";
-    for(int i=0; i<n; i++)
-    {
-        cout<<arr[i]<<' ';
-    }
+    
 }
