@@ -51,6 +51,12 @@ int main()
         arr[i]=rand()%10000;
     }
     
+    cout<<"Initial array: ";
+    for(int i=0; i<n; i++)
+    {
+        cout<<arr[i]<<' ';
+    }
+    
     insertion(arr, n, it);
     
     cout<<endl<<"Iterations for random elements: "<< *it;
