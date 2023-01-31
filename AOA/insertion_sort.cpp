@@ -4,16 +4,18 @@
 
 using namespace std;
 
-void insertion(int* arr, int n)
+void insertion(int* arr, int n, int* it)
 {
     int k;
     for(int i=0; i<n-1; i++)
     {
+        *it +=1;
         if(arr[i]>arr[i+1])
         {
             k = arr[i+1];
             for(int j=i; j>=0; j--)
             {
+                *it +=1;
                 if(arr[j]<k)
                 {
                     arr[j+1] = k;
@@ -40,7 +42,8 @@ int main()
     int n;
     cin>>n;
     
-    time_t start, end;
+    int* it = new int();
+    *it = 0;
     
     int* arr = new int[n];
     for(int i =0; i<n; i++)
@@ -48,20 +51,10 @@ int main()
         arr[i]=rand()%10000;
     }
     
-    time(&start);
+    insertion(arr, n, it);
     
-    insertion(arr, n);
-    
-    time(&end);
-    double time_taken = double(end - start);
-    
-    // cout<<"Sorted array: ";
-    // for(int i=0; i<n; i++)
-    // {
-    //     cout<<arr[i]<<' ';
-    // }
-    
-    cout<<endl<<"Time taken for random elements: "<< time_taken<<'s';
+    cout<<endl<<"Iterations for random elements: "<< *it;
+    *it = 0;
     
     int n1 = n;
     for(int i =0; i<n; i++)
@@ -70,18 +63,16 @@ int main()
         n1--;
     }
     
-    time(&start);
+    insertion(arr, n, it);
+    cout<<endl<<"Iterations for worst case: "<< *it;
+    *it = 0;
     
-    insertion(arr, n);
+    insertion(arr, n, it);
+    cout<<endl<<"Iterations for best case: "<< *it<<endl;
     
-    time(&end);
-    time_taken = double(end - start);
-    
-    // cout<<"Sorted array: ";
-    // for(int i=0; i<n; i++)
-    // {
-    //     cout<<arr[i]<<' ';
-    // }
-    
-    cout<<endl<<"Time taken for worst case: "<< time_taken<<'s';
+    cout<<"Sorted array: ";
+    for(int i=0; i<n; i++)
+    {
+        cout<<arr[i]<<' ';
+    }
 }
