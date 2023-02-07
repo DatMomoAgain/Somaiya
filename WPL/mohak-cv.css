@@ -1,0 +1,24 @@
+header{
+    text-align: center;
+    background-color: rgb(124, 77, 201);
+    padding:5px;
+    color:white;
+    font-size: 20px;
+    margin:0;
+    font-family: Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif; 
+}
+.header-list li{
+    display: inline;
+    padding-right: 20px;
+}
+h1{
+    margin-bottom: 0;
+}
+h2{
+    margin-top: 0;
+    text-decoration: underline;
+}
+
+.Education{
+    margin-top:25px;
+}
