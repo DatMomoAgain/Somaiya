@@ -1,24 +1,93 @@
+body{
+    font-family: Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif;
+    margin:0;
+}
+
+/*header stuff*/
 header{
     text-align: center;
-    background-color: rgb(124, 77, 201);
-    padding:5px;
+    background-color: rgb(62, 6, 153);
+    padding-top:20px;
+    padding-bottom: 20px;
     color:white;
     font-size: 20px;
     margin:0;
-    font-family: Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif; 
 }
-.header-list li{
-    display: inline;
+header .header-list li{
+    display: inline-block;
     padding-right: 20px;
 }
-h1{
+header h1{
     margin-bottom: 0;
 }
-h2{
+header h2{
     margin-top: 0;
     text-decoration: underline;
+    padding-bottom: 15px;
+    border-bottom: 1px solid gray;
+}
+/*header ends*/
+
+.container{
+    width:80%;
+    margin: 0 auto;
 }
 
-.Education{
-    margin-top:25px;
+.skills{
+    border-bottom: 6px solid cyan;
 }
+
+.skills .left{
+    float: left;
+    margin: 50px;
+}
+
+.skills ul{
+    margin-top: 50px;
+    margin-left: 500px;
+    list-style-type: none;
+}
+
+.skills ul li{
+    margin-bottom: 20px;
+}
+
+.education{
+    border-bottom: 6px solid cyan;
+}
+
+.education .left{
+    float: left;
+    margin: 90px;
+}
+
+.education ul{
+    margin-top: 50px;
+    margin-left: 500px;
+    list-style-type: none;
+}
+
+.education ul li{
+    margin-bottom: 20px;
+}
+
+.work{
+    border-bottom: 6px solid cyan;
+}
+
+.work .left{
+    float: left;
+    margin: 50px;
+}
+
+.work p{
+    margin-top: 50px;
+    margin-left: 525px;
+}
+
+.work ul{
+    margin-top:0;
+    margin-left: 500px;
+}
+
+
