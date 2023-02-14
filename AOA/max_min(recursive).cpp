@@ -3,8 +3,9 @@
 
 using namespace std;
 
-vector<int> minmax(vector<int> vec, int l, int r)
+vector<int> minmax(vector<int> vec, int l, int r, int *it)
 {
+    *it +=1;
     vector<int> ans;
     vector<int> ans2;
     if(l==r)
@@ -15,8 +16,8 @@ vector<int> minmax(vector<int> vec, int l, int r)
     }
     
     int m= (l+r)/2;
-    ans = minmax(vec,l,m);
-    ans2 = minmax(vec,m+1,r);
+    ans = minmax(vec,l,m, it);
+    ans2 = minmax(vec,m+1,r, it);
     
     if(ans[0]>ans2[0])
     {
@@ -50,8 +51,11 @@ int main()
         cout<<vec[i]<<' ';
     }
     
-    vector<int> ans = minmax(vec, 0, n-1);
+    int* it = new int();
+    *it=0;
+    vector<int> ans = minmax(vec, 0, n-1, it);
     
     cout<<endl<<"min element: "<<ans[0]<<endl;
-    cout<<"max element: "<<ans[1];
+    cout<<"max element: "<<ans[1]<<endl;
+    cout<<"No. of iterations: "<<*it;
 }
