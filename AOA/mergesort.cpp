@@ -12,8 +12,8 @@ void disp(vector<int> &v){
 }
 
 void merge(vector<int> &v, int l, int m, int r){
-    cout<<"l:"<<l<<" m:"<<m<<" r:"<<r<<endl;
-    disp(v);
+    // cout<<"l:"<<l<<" m:"<<m<<" r:"<<r<<endl;
+    // disp(v);
     it++;
 
     //creating 2 arrays for left side and right side
