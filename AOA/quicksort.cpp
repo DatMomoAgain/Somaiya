@@ -6,15 +6,16 @@ int it =0;
 
 //returns pivot element
 int partition(vector<int> &v, int l, int r){
-    it++;
     int pivot = l;
     int end = r;
 
     while(r>l){
         while(v[l]<=v[pivot] && l<end){
+            it++;
             l++;
         }
         while(v[r]>=v[pivot] && r>pivot){
+            it++;
             r--;
         }
         if(l<r){
