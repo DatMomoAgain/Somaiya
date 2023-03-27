@@ -1,6 +1,6 @@
 # Somaiya
-AOA -> Analysis Of Algorithms
-COA -> Computer Organization and Architecture
-DS -> Data Structures
-OOP -> Object Oriented Programming
-WPL -> Web Programming Laboratory
+AOA -> Analysis Of Algorithms<br>
+COA -> Computer Organization and Architecture<br>
+DS -> Data Structures<br>
+OOP -> Object Oriented Programming<br>
+WPL -> Web Programming Laboratory<br>
